@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Carstore</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Carstore</h1>
+	<table>
+		<tbody>
+			<tr>
+				<th>Merkki</th>
+				<th>Malli</th>
+				<th>Vuosi</th>
+				<th>Hinta</th>
+				<th>Tyyppi</th>
+			</tr>
+			<tr th:each = "car : ${cars}">
+				<td th:text="${car.merkki}"></td>
+				<td th:text="${car.malli}"></td>
+				<td th:text="${car.vuosi}"></td>
+				<td th:text="${car.hinta}"></td>
+				<td th:text="${car.type.kuvaus}"></td>
+				
+				<td><a th:href="@{/delete/{id}(id=${car.id})}">Delete</a></td>  
+			</tr>
+		</tbody>
+	</table>
+	<a href="/add">Add Car</a>  
+</body>
+</html>

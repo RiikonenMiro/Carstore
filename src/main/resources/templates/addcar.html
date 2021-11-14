@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Carlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add car</h1>
+	<div>
+		<form th:object="${car}" th:action="@{save}" action="#" method="post">
+		  	<label for="merkki">Merkki</label>
+			<input type="text" id="merkki" th:field="*{merkki}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="malli">Malli</label>
+			<input type="text" id="malli" th:field="*{malli}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="vuosi">Vuosi</label>
+			<input type="text" id="vuosi" th:field="*{vuosi}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="hinta">Hinta</label>
+			<input type="text" id="hinta" th:field="*{hinta}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="typlist">Tyyppi</label>
+			 <select id="typlist" th:field="*{type}" class="form-control">
+       			<option th:each="tyyp: ${tyypit}" th:value="${tyyp.tyyppiid}" th:text="${tyyp.kuvaus}"></option>
+    		</select>
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>
