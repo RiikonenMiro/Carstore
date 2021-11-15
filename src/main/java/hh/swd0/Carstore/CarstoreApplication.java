@@ -9,6 +9,8 @@ import hh.swd0.Carstore.domain.Car;
 import hh.swd0.Carstore.domain.CarRepository;
 import hh.swd0.Carstore.domain.Type;
 import hh.swd0.Carstore.domain.TypeRepository;
+import hh.swd0.Carstore.domain.UserRepository;
+import hh.swd0.Carstore.domain.User;
 
 
 @SpringBootApplication
@@ -19,7 +21,7 @@ public class CarstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(CarRepository crepo, TypeRepository trepo) {
+	public CommandLineRunner demo(CarRepository crepo, TypeRepository trepo, UserRepository urepo) {
 		return (args) -> {
 			Type t1 = new Type("Viistoperä");
 			Type t2 = new Type("Crossover");
@@ -37,6 +39,9 @@ public class CarstoreApplication {
 			crepo.save(c1);
 			crepo.save(c2);
 			crepo.save(c3);
+			
+			User admin = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "admin@admin.com", "ADMIN");
+			urepo.save(admin);
 			
 		};
 	}

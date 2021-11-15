@@ -3,19 +3,24 @@
 <head>
 <title>Tyypit</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Tyypit</h1>
-	<table>
-		<tbody>
-			<tr>
-				<th>Tyypit</th>
-			</tr>
-			<tr th:each = "type : ${tyypit}">
-				<td th:text = "${type.kuvaus}"></td>
-			</tr>
-		</tbody>	
-	</table>
-	<a href="/addtype">Lisää tyyppi</a>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Tyypit</h1>
+		</div>
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th>Tyypit</th>
+				</tr>
+				<tr th:each = "type : ${tyypit}">
+					<td th:text = "${type.kuvaus}"></td>
+				</tr>
+			</tbody>	
+		</table>
+		<a href="/addtype" class="btn btn-xs btn-success">Add type</a>
+	</div>
 </body>
 </html>

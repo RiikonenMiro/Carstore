@@ -3,16 +3,21 @@
 <head>
 <title>Tyyppi</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Lisää tyyppi</h1>
-	<div>
-		<form th:object="${type}" th:action="@{/savetype}" action="#" method="post">
-			<label for="kuvaus">Kuvaus</label>
-			<input type="text" id="kuvaus" th:field="*{kuvaus}"/>
-			<div style="clear: both; display: block; height: 10px;"></div>
-			<input type="submit" value="Save"></input>
-		</form>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Lisää tyyppi</h1>
+		</div>
+		<div>
+			<form th:object="${type}" th:action="@{/savetype}" action="#" method="post">
+				<label for="kuvaus">Kuvaus</label>
+				<input type="text" id="kuvaus" th:field="*{kuvaus}" class="form-control"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="submit" value="Save" class="btn btn-xs btn-success"></input>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

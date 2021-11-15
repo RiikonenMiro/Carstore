@@ -1,18 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Carlist</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<title>Carstore</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<div class="container">
 		<div class="col-md-4">
-			<h1>Add car</h1>
+			<h1>Edit Car</h1>
 		</div>
 		<div class="col-md-4">
 			<form th:object="${car}" th:action="@{/save}" action="#" method="post">
-			  	<label for="merkki">Merkki</label>
+				<input type="hidden" id="id" th:field="*{id}"/>
+				<label for="merkki">Merkki</label>
 				<input type="text" id="merkki" th:field="*{merkki}" class="form-control"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 			  	<label for="malli">Malli</label>
@@ -31,7 +32,7 @@
 	    		</select>
 				
 				<div style="clear: both; display: block; height: 10px;"></div>
-				<input type="submit" class="btn btn-xs btn-success" value="Save"></input>
+				<input type="submit" value="Save" class="btn btn-xs btn-success"></input>
 			</form>
 		</div>
 	</div>
