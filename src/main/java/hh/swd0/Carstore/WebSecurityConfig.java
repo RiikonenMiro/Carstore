@@ -30,7 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .headers().frameOptions().sameOrigin()
         .and()
-        //.authorizeRequests().anyRequest().authenticated()
         .authorizeRequests().antMatchers("/login").authenticated()
         .and()
       .formLogin()
