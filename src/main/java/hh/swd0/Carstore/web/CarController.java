@@ -3,10 +3,13 @@ package hh.swd0.Carstore.web;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +31,16 @@ public class CarController {
 	public String carList(Model model) {
 		model.addAttribute("cars", crepo.findAll());
 		return "carstore"; // carstore.html
+	}
+	
+	@RequestMapping(value = "/carlist", method = RequestMethod.POST)
+	public String carSubmit(@Valid Car car, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			return "carstore";
+		} else {
+			model.addAttribute("cars", car);
+			return "result";
+		}
 	}
 	
 	@RequestMapping(value = "/add")

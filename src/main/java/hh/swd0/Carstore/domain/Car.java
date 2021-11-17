@@ -7,10 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import javax.validation.constraints.NotNull;
+
 @Entity
 public class Car {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotNull
 	private long id;
 	private String merkki;
 	private String malli;

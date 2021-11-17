@@ -14,13 +14,11 @@
 			<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 		</div>
 		
-		<div class="col-md-4">
+		<div sec:authorize="isAnonymous()" class="col-md-4">
 			<a href="/login" class="btn btn-xs btn-primary">Sign in</a>
 		</div>
 		
-		<div style="clear: both; display: block; height: 10px;"></div>
-		
-		<div class="col-md-4">
+		<div sec:authorize="hasAuthority('ADMIN')" class="col-md-4">
 			<form th:action="@{/logout}" method="post">
 				<input type="submit" value="Sign Out" class="btn btn-xs btn-primary"/>
 			</form>
